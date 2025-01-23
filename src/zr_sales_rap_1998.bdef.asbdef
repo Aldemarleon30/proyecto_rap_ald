@@ -1,0 +1,50 @@
+managed implementation in class ZBP_R_SALES_RAP_1998 unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_SALES_RAP_1998 alias ZrSalesRap1998
+persistent table ZSALES_RAP_1998
+draft table ZASLES_RAP_1998D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+
+{
+  field ( readonly )
+   IdUuid,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   IdUuid;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZSALES_RAP_1998
+  {
+    IdUuid = id_uuid;
+    Mail = mail;
+    Firstname = firstname;
+    Lastname = lastname;
+    Country = country;
+    Createon = createon;
+    Deliverydate = deliverydate;
+    Orderstatus = orderstatus;
+    LocalCreatedBy = local_created_by;
+    LocalCreatedAt = local_created_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt = last_changed_at;
+  }
+}

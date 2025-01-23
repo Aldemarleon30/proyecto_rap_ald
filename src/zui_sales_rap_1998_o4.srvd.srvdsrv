@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_SALES_RAP_1998'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_SALES_RAP_1998'
+  }
+}
+define service ZUI_SALES_RAP_1998_O4 provider contracts odata_v4_ui {
+  expose ZC_SALES_RAP_1998;
+}
